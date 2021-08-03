@@ -52,9 +52,12 @@ public class HBaseDemo {
     public static void init() {
         configuration = HBaseConfiguration.create();
         configuration.set("hbase.zookeeper.property.clientPort", "2181");
-        configuration.set("hbase.zookeeper.quorum", "172.16.63.17,172.16.63.14,172.16.63.15");
-        configuration.set("hbase.master", "hdfs://172.16.63.14:60000");
-        configuration.set("hbase.root.dir", "hdfs://172.16.63.17:8020/hbase");
+        configuration.set("hbase.zookeeper.quorum", "47.101.204.23,47.101.216.12,47.101.206.249");
+        configuration.set("hbase.client.retries.number", Integer.toString(0));
+        configuration.set("zookeeper.session.timeout", Integer.toString(60000));
+        configuration.set("zookeeper.recovery.retry", Integer.toString(0));
+        //configuration.set("hbase.master", "hdfs://172.16.63.14:60000");
+        //configuration.set("hbase.root.dir", "hdfs://172.16.63.17:8020/hbase");
 
         try {
             connection = ConnectionFactory.createConnection(configuration);
